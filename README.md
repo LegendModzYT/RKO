@@ -4,8 +4,8 @@ Source for my RGH tool, for any other people who are starting out and need a lit
 I wouldn't recommend copying and pasting everything, as you won't learn anything.
 
 Thanks to these people for support/assist:
-CicadaTheRetroLord
-Godzilla
+CicadaTheRetroLord - 
+Godzilla - 
 Mari
 
 This is also just release 4, nothing else included.
