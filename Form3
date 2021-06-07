@@ -1,0 +1,59 @@
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using XDevkit;
+using XDevkitPlusPlus;
+using JRPC_Client;
+using DevComponents.DotNetBar;
+
+namespace RGH_Test
+{
+    public partial class Form3 : Office2007Form
+    {
+        IXboxConsole RGH;
+        public Form3()
+        {
+            InitializeComponent();
+        }
+
+        private void Form3_Load(object sender, EventArgs e)
+        {
+            if (RGH.Connect(out RGH))
+            {
+
+            }
+            else
+            {
+
+            }
+        }
+
+        private void buttonX2_Click(object sender, EventArgs e)
+        {
+            MessageBoxEx.Show("Will Rename some Text on your screen\nIf your zone says MPUI_(example)_CAPS, that means its too long.", "What", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+        }
+
+        private void buttonX1_Click(object sender, EventArgs e)
+        {
+            RGH.WriteString(0xA679CE32, this.textBoxX1.Text ); //Public Match
+            RGH.WriteString(0xA67AD112, this.textBoxX2.Text ); //Custom Games
+            RGH.WriteString(0xA6791F2C, this.textBoxX3.Text ); //Create a Class
+            RGH.WriteString(0xA67A0650, this.textBoxX4.Text ); //Barracks
+            RGH.WriteString(0xA67A2CB4, this.textBoxX5.Text ); //Theater
+            RGH.WriteString(0xA67C7918, this.textBoxX6.Text ); //League
+            RGH.WriteString(0xA67BEF33, this.textBoxX7.Text ); //Store
+            RGH.WriteString(0xA67764D2, this.textBoxX8.Text ); //Xbox Live
+            RGH.WriteString(0xA6775FF0, this.textBoxX9.Text ); //System Link
+            RGH.WriteString(0xA679B1DE, this.textBoxX10.Text ); //Main Menu
+            RGH.WriteString(0xA67A1B6A, this.textBoxX11.Text ); //Emblem Editor
+            RGH.WriteString(0xA6791E17, this.textBoxX12.Text ); //Combat Record
+            RGH.XNotify("Zones Set Successfully!");
+        }
+    }
+}
