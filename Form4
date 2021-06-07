@@ -1,0 +1,191 @@
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Net;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using XDevkit;
+using XDevkitPlusPlus;
+using JRPC_Client;
+using DevComponents.DotNetBar;
+using System.Diagnostics;
+
+namespace RGH_Test
+{
+    public partial class Form4 : Office2007Form
+    {
+        IXboxConsole RGH;
+        public Form4()
+        {
+            InitializeComponent();
+        }
+
+        public uint BO2SV = 2185427824;
+
+        private void Form4_Load(object sender, EventArgs e)
+        {
+            MessageBoxEx.Show("Clients will most likely load if you're not host.", "Listen Up", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+
+            if (RGH.Connect(out RGH))
+            {
+                label1.Text = "Connected";
+                label1.ForeColor = Color.Lime;
+            }
+            else
+            {
+                label1.Text = "Unable To Connect";
+                label1.ForeColor = Color.Red;
+            }
+        }
+
+        public void Connected()
+        {
+
+        }
+
+
+
+        private int ClientID()
+        {
+            if (this.listBox1.SelectedIndex == 2)
+                return 0;
+            if (this.listBox1.SelectedIndex == 3)
+                return 1;
+            if (this.listBox1.SelectedIndex == 4)
+                return 2;
+            if (this.listBox1.SelectedIndex == 5)
+                return 3;
+            if (this.listBox1.SelectedIndex == 6)
+                return 4;
+            if (this.listBox1.SelectedIndex == 7)
+                return 5;
+            if (this.listBox1.SelectedIndex == 8)
+                return 6;
+            if (this.listBox1.SelectedIndex == 9)
+                return 7;
+            if (this.listBox1.SelectedIndex == 10)
+                return 8;
+            if (this.listBox1.SelectedIndex == 11)
+                return 9;
+            if (this.listBox1.SelectedIndex == 12)
+                return 10;
+            if (this.listBox1.SelectedIndex == 13)
+                return 11;
+            if (this.listBox1.SelectedIndex == 14)
+                return 12;
+            if (this.listBox1.SelectedIndex == 15)
+                return 13;
+            if (this.listBox1.SelectedIndex == 16)
+                return 14;
+            if (this.listBox1.SelectedIndex == 17)
+                return 15;
+            if (this.listBox1.SelectedIndex == 18)
+                return 16;
+            if (this.listBox1.SelectedIndex == 19)
+                return 17;
+            return this.listBox1.SelectedIndex == 19 ? 17 : ClientID();
+        }
+
+        private void buttonX1_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                label1.Text = "Grabbing All Clients!";
+                label1.ForeColor = Color.Pink;
+                this.listBox1.Items.Clear();
+                this.listBox1.Items.Add("[Client List]");
+                this.progressBar1.ForeColor = Color.Pink;
+                this.listBox1.Items.Add("0: " + RGH.ReadString(2203414204U, 16U));
+                this.progressBar1.Value = 5;
+                this.listBox1.Items.Add("1: " + RGH.ReadString(2203436724U, 16U));
+                this.progressBar1.Value = 11;
+                this.listBox1.Items.Add("2: " + RGH.ReadString(2203459244U, 16U));
+                this.progressBar1.Value = 16;
+                this.listBox1.Items.Add("3: " + RGH.ReadString(2203481764U, 16U));
+                this.progressBar1.Value = 20;
+                this.listBox1.Items.Add("4: " + RGH.ReadString(2203504284U, 16U));
+                this.progressBar1.Value = 25;
+                this.listBox1.Items.Add("5: " + RGH.ReadString(2203526804U, 16U));
+                this.progressBar1.Value = 30;
+                this.listBox1.Items.Add("6: " + RGH.ReadString(2203549324U, 16U));
+                this.progressBar1.Value = 35;
+                this.listBox1.Items.Add("7: " + RGH.ReadString(2203571844U, 16U));
+                this.progressBar1.Value = 39;
+                this.listBox1.Items.Add("8: " + RGH.ReadString(2203594364U, 16U));
+                this.progressBar1.Value = 42;
+                this.listBox1.Items.Add("9: " + RGH.ReadString(2203616884U, 16U));
+                this.progressBar1.Value = 47;
+                this.listBox1.Items.Add("10: " + RGH.ReadString(2203639404U, 16U));
+                this.progressBar1.Value = 55;
+                this.listBox1.Items.Add("11: " + RGH.ReadString(2203661924U, 16U));
+                this.progressBar1.Value = 62;
+                this.listBox1.Items.Add("12: " + RGH.ReadString(2203684444U, 16U));
+                this.progressBar1.Value = 68;
+                this.listBox1.Items.Add("13: " + RGH.ReadString(2203706964U, 16U));
+                this.progressBar1.Value = 74;
+                this.listBox1.Items.Add("14: " + RGH.ReadString(2203729484U, 16U));
+                this.progressBar1.Value = 80;
+                this.listBox1.Items.Add("15: " + RGH.ReadString(2203752004U, 16U));
+                this.progressBar1.Value = 85;
+                this.listBox1.Items.Add("16: " + RGH.ReadString(2203774524U, 16U));
+                this.progressBar1.Value = 82;
+                this.listBox1.Items.Add("17: " + RGH.ReadString(2203797044U, 16U));
+                this.progressBar1.Value = 100;
+                label1.Text = "All Clients Grabbed";
+                label1.ForeColor = Color.Lime;
+            }
+            catch (Exception)
+            {
+                label1.Text = "Failed to Grab\nAre you Connected?";
+                label1.ForeColor = Color.Red;
+                this.progressBar1.Value = 100;
+                this.progressBar1.ForeColor = Color.Red;
+            }
+        }
+        
+        
+        private void buttonX4_Click(object sender, EventArgs e)
+        {
+            this.listBox1.Items.Clear();
+            this.listBox1.Items.Add("[Client List]");
+            label1.ForeColor = Color.Lime;
+            label1.Text = "List Cleared!";
+        }
+     
+        private void buttonX2_Click(object sender, EventArgs e)
+        {
+            RGH.CallVoid(2185427824, ClientID(), 0, "5 \"" + this.textBoxX1.Text + "\"");
+
+        }
+        
+        private void buttonX5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonX3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void progressBarX1_Click(object sender, EventArgs e)
+        {
+
+        }
+    }
+
+}
