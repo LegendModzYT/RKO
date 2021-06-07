@@ -1,0 +1,199 @@
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using XDevkit;
+using XDevkitPlusPlus;
+using JRPC_Client;
+using DevComponents.DotNetBar;
+
+namespace RGH_Test
+{
+    public partial class Form2 : Office2007Form
+    {
+        IXboxConsole RGH;
+
+        public Form2()
+        {
+            InitializeComponent();
+        }
+
+        private void ConnectToConsole_Click(object sender, EventArgs e)
+        {
+
+            
+        }
+
+
+
+        private void Form2_Load(object sender, EventArgs e)
+        {
+            if (RGH.Connect(out RGH))
+            {
+
+            }
+            else
+            {
+
+            }
+        }
+
+        private void buttonX1_Click(object sender, EventArgs e)
+        {
+            RGH.CallVoid(0x824015E0, 0,"setStatFromLocString cacloadouts customclassname 0 " + this.class1.Text + "\0");
+            RGH.CallVoid(0x824015E0, 0,"setStatFromLocString cacloadouts customclassname 1 " + this.class2.Text + "\0");
+            RGH.CallVoid(0x824015E0, 0,"setStatFromLocString cacloadouts customclassname 2 " + this.class3.Text + "\0");
+            RGH.CallVoid(0x824015E0, 0,"setStatFromLocString cacloadouts customclassname 3 " + this.class4.Text + "\0");
+            RGH.CallVoid(0x824015E0, 0,"setStatFromLocString cacloadouts customclassname 4 " + this.class5.Text + "\0");
+            RGH.CallVoid(0x824015E0, 0,"setStatFromLocString cacloadouts customclassname 5 " + this.class6.Text + "\0");
+            RGH.CallVoid(0x824015E0, 0,"setStatFromLocString cacloadouts customclassname 6 " + this.class7.Text + "\0");
+            RGH.CallVoid(0x824015E0, 0,"setStatFromLocString cacloadouts customclassname 7 " + this.class8.Text + "\0");
+            RGH.CallVoid(0x824015E0, 0,"setStatFromLocString cacloadouts customclassname 8 " + this.class9.Text + "\0");
+            RGH.CallVoid(0x824015E0, 0,"setStatFromLocString cacloadouts customclassname 9 " + this.class10.Text + "\0");
+            RGH.CallVoid(0x824015E0, 0,"updatestats");
+            RGH.CallVoid(0x824015E0, 0,"updategamerprofile");
+            RGH.CallVoid(0x824015E0, 0,"updatestats");
+            RGH.CallVoid(0x824015E0, 0,"updategamerprofile");
+            RGH.XNotify("Class names Set!");
+        }
+
+        private void FreezeClasses_Click(object sender, EventArgs e)
+        {
+            RGH.XNotify("Toasting Classes...");
+            RGH.CallVoid(0x824015E0, 0,"setStatFromLocString cacloadouts customclassname 0 \"^H¤¤¤¤¤ ^B¤¤¤¤\"");
+            RGH.CallVoid(0x824015E0, 0,"setStatFromLocString cacloadouts customclassname 1 \"^H¤¤¤¤¤¤ ^B¤¤¤¤\"");
+            RGH.CallVoid(0x824015E0, 0,"setStatFromLocString cacloadouts customclassname 2 \"^H¤¤¤¤¤¤ ^B¤¤¤¤\"");
+            RGH.CallVoid(0x824015E0, 0,"setStatFromLocString cacloadouts customclassname 3 \"^H¤¤¤¤¤¤ ^B¤¤¤¤\"");
+            RGH.CallVoid(0x824015E0, 0,"setStatFromLocString cacloadouts customclassname 4 \"^H¤¤¤¤¤¤ ^B¤¤¤¤\"");
+            RGH.CallVoid(0x824015E0, 0,"setStatFromLocString cacloadouts customclassname 5 \"^H¤¤¤¤¤¤ ^B¤¤¤¤\"");
+            RGH.CallVoid(0x824015E0, 0,"setStatFromLocString cacloadouts customclassname 6 \"^H¤¤¤¤¤¤ ^B¤¤¤¤\"");
+            RGH.CallVoid(0x824015E0, 0,"setStatFromLocString cacloadouts customclassname 7 \"^H¤¤¤¤¤¤ ^B¤¤¤¤\"");
+            RGH.CallVoid(0x824015E0, 0,"setStatFromLocString cacloadouts customclassname 8 \"^H¤¤¤¤¤¤ ^B¤¤¤¤\"");
+            RGH.CallVoid(0x824015E0, 0,"setStatFromLocString cacloadouts customclassname 9 \"^H¤¤¤¤¤¤ ^B¤¤¤¤\"");
+            RGH.CallVoid(0x824015E0, 0,"setPublicMatchClassSetNameFromLocString 0 \"^H¤¤¤¤¤¤ ^B¤¤¤¤^H¤¤¤¤¤¤ ^B¤¤¤¤\"");
+            RGH.CallVoid(0x824015E0, 0,"setStatFromLocString custommatchcacloadouts customclassname 0 \"^H¤¤¤¤¤¤ ^B¤¤¤¤\"");
+            RGH.CallVoid(0x824015E0, 0,"setStatFromLocString custommatchcacloadouts customclassname 1 \"^H¤¤¤¤¤¤ ^B¤¤¤¤\"");
+            RGH.CallVoid(0x824015E0, 0,"setStatFromLocString custommatchcacloadouts customclassname 2 \"^H¤¤¤¤¤¤ ^B¤¤¤¤\"");
+            RGH.CallVoid(0x824015E0, 0,"setStatFromLocString custommatchcacloadouts customclassname 3 \"^H¤¤¤¤¤¤ ^B¤¤¤¤\"");
+            RGH.CallVoid(0x824015E0, 0,"setStatFromLocString custommatchcacloadouts customclassname 4 \"^H¤¤¤¤¤¤ ^B¤¤¤¤\"");
+            RGH.CallVoid(0x824015E0, 0,"updatestats");
+            RGH.CallVoid(0x824015E0, 0,"updategamerprofile");
+            RGH.CallVoid(0x824015E0, 0,"updatestats");
+            RGH.CallVoid(0x824015E0, 0,"updategamerprofile");
+            RGH.XNotify("All Classes Frozen");
+
+        }
+
+        private void UnfreezeClasses_Click(object sender, EventArgs e)
+        {
+            RGH.XNotify("Unfreezing all Classes - Please Wait...");
+            RGH.CallVoid(0x824015E0, 0,"setStatFromLocString cacloadouts customclassname 0 \"U^6nfrozen!\"");
+            RGH.CallVoid(0x824015E0, 0,"setStatFromLocString cacloadouts customclassname 1 \"U^6nfrozen!\"");
+            RGH.CallVoid(0x824015E0, 0,"setStatFromLocString cacloadouts customclassname 2 \"U^6nfrozen!\"");
+            RGH.CallVoid(0x824015E0, 0,"setStatFromLocString cacloadouts customclassname 3 \"U^6nfrozen!\"");
+            RGH.CallVoid(0x824015E0, 0,"setStatFromLocString cacloadouts customclassname 4 \"U^6nfrozen!\"");
+            RGH.CallVoid(0x824015E0, 0,"setStatFromLocString cacloadouts customclassname 5 \"U^6nfrozen!\"");
+            RGH.CallVoid(0x824015E0, 0,"setStatFromLocString cacloadouts customclassname 6 \"U^6nfrozen!\"");
+            RGH.CallVoid(0x824015E0, 0,"setStatFromLocString cacloadouts customclassname 7 \"U^6nfrozen!\"");
+            RGH.CallVoid(0x824015E0, 0,"setStatFromLocString cacloadouts customclassname 8 \"U^6nfrozen!\"");
+            RGH.CallVoid(0x824015E0, 0,"setStatFromLocString cacloadouts customclassname 9 \"U^6nfrozen!\"");
+            RGH.CallVoid(0x824015E0, 0,"setPublicMatchClassSetNameFromLocString 0 \"^6ack ^5<3\"");
+            RGH.CallVoid(0x824015E0, 0,"setStatFromLocString custommatchcacloadouts customclassname 0 \"U^6nfrozen!\"");
+            RGH.CallVoid(0x824015E0, 0,"setStatFromLocString custommatchcacloadouts customclassname 1 \"U^6nfrozen!\"");
+            RGH.CallVoid(0x824015E0, 0,"setStatFromLocString custommatchcacloadouts customclassname 2 \"U^6nfrozen!\"");
+            RGH.CallVoid(0x824015E0, 0,"setStatFromLocString custommatchcacloadouts customclassname 3 \"U^6nfrozen!\"");
+            RGH.CallVoid(0x824015E0, 0,"setStatFromLocString custommatchcacloadouts customclassname 4 \"U^6nfrozen!\"");
+            RGH.CallVoid(0x824015E0, 0,"setStatFromLocString leaguecacloadouts customclassname 0 \"U^6nfrozen!\"");
+            RGH.CallVoid(0x824015E0, 0,"setStatFromLocString leaguecacloadouts customclassname 1 \"U^6nfrozen!\"");
+            RGH.CallVoid(0x824015E0, 0,"setStatFromLocString leaguecacloadouts customclassname 2 \"U^6nfrozen!\"");
+            RGH.CallVoid(0x824015E0, 0,"setStatFromLocString leaguecacloadouts customclassname 3 \"U^6nfrozen!\"");
+            RGH.CallVoid(0x824015E0, 0,"setStatFromLocString leaguecacloadouts customclassname 4 \"U^6nfrozen!\"");
+            RGH.CallVoid(0x824015E0, 0,"updatestats");
+            RGH.CallVoid(0x824015E0, 0,"updategamerprofile");
+            RGH.CallVoid(0x824015E0, 0,"updatestats");
+            RGH.CallVoid(0x824015E0, 0,"updategamerprofile");
+            RGH.XNotify("Classes Unfrozen!");
+        }
+
+        private void CipherLag_Click(object sender, EventArgs e)
+        {
+            MessageBoxEx.Show("Victim must have 'Fog Effect' On in the Cipher Offhost!\nShould drop them to about 5FPS when they Press Create a Class", "$moked", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            RGH.CallVoid(0x824015E0, 0,"setStatFromLocString cacloadouts customclassname 0 \"^Hui_globe\"");
+            RGH.CallVoid(0x824015E0, 0,"setStatFromLocString cacloadouts customclassname 1 \"^Hui_globe\"");
+            RGH.CallVoid(0x824015E0, 0,"setStatFromLocString cacloadouts customclassname 2 \"^Hui_globe\"");
+            RGH.CallVoid(0x824015E0, 0,"setStatFromLocString cacloadouts customclassname 3 \"^Hui_globe\"");
+            RGH.CallVoid(0x824015E0, 0,"setStatFromLocString cacloadouts customclassname 4 \"^Hui_globe\"");
+            RGH.CallVoid(0x824015E0, 0,"setStatFromLocString cacloadouts customclassname 5 \"^Hui_globe\"");
+            RGH.CallVoid(0x824015E0, 0,"setStatFromLocString cacloadouts customclassname 6 \"^Hui_globe\"");
+            RGH.CallVoid(0x824015E0, 0,"setStatFromLocString cacloadouts customclassname 7 \"^Hui_globe\"");
+            RGH.CallVoid(0x824015E0, 0,"setStatFromLocString cacloadouts customclassname 8 \"^Hui_globe\"");
+            RGH.CallVoid(0x824015E0, 0,"setStatFromLocString cacloadouts customclassname 9 \"^Hui_globe\"");
+            RGH.CallVoid(0x824015E0, 0,"setPublicMatchClassSetNameFromLocString 0 \"ack ^Hui_globe\"");
+            RGH.CallVoid(0x824015E0, 0,"setStatFromLocString custommatchcacloadouts customclassname 0 \"^Hui_globe\"");
+            RGH.CallVoid(0x824015E0, 0,"setStatFromLocString custommatchcacloadouts customclassname 1 \"^Hui_globe\"");
+            RGH.CallVoid(0x824015E0, 0,"setStatFromLocString custommatchcacloadouts customclassname 2 \"^Hui_globe\"");
+            RGH.CallVoid(0x824015E0, 0,"setStatFromLocString custommatchcacloadouts customclassname 3 \"^Hui_globe\"");
+            RGH.CallVoid(0x824015E0, 0,"setStatFromLocString custommatchcacloadouts customclassname 4 \"^Hui_globe\"");
+            RGH.CallVoid(0x824015E0, 0,"setStatFromLocString leaguecacloadouts customclassname 0 \"^Hui_globe\"");
+            RGH.CallVoid(0x824015E0, 0,"setStatFromLocString leaguecacloadouts customclassname 1 \"^Hui_globe\"");
+            RGH.CallVoid(0x824015E0, 0,"setStatFromLocString leaguecacloadouts customclassname 2 \"^Hui_globe\"");
+            RGH.CallVoid(0x824015E0, 0,"setStatFromLocString leaguecacloadouts customclassname 3 \"^Hui_globe\"");
+            RGH.CallVoid(0x824015E0, 0,"setStatFromLocString leaguecacloadouts customclassname 4 \"^Hui_globe\"");
+            RGH.CallVoid(0x824015E0, 0,"updatestats");
+            RGH.CallVoid(0x824015E0, 0,"updategamerprofile");
+            RGH.CallVoid(0x824015E0, 0,"updatestats");
+            RGH.CallVoid(0x824015E0, 0,"updategamerprofile");
+        }
+
+        private void buttonX2_Click(object sender, EventArgs e)
+        {
+            RGH.CallVoid(0x824015E0, 0,"updatestats");
+            RGH.CallVoid(0x824015E0, 0,"updategamerprofile");
+            RGH.CallVoid(0x824015E0, 0,"updatestats");
+            RGH.CallVoid(0x824015E0, 0,"updategamerprofile");
+        }
+
+        private void buttonX3_Click(object sender, EventArgs e)
+        {
+            
+            RGH.SetMemory(0x84353A50, new byte[] { 0x51, 0xA1 }); //1Primary
+            RGH.SetMemory(0x84353A5D, new byte[] { 0x00, 0xA8 }); //1Secondary
+            RGH.SetMemory(0x84353A83, new byte[] { 0x00, 0x00, 0x15 }); //2Primary
+            RGH.SetMemory(0x84353A92, new byte[] { 0x00, 0xA8 }); //2Secondary
+            RGH.SetMemory(0x84353AB9, new byte[] { 0x50, 0x01 }); //3Primary
+            RGH.SetMemory(0x84353AC6, new byte[] { 0x00, 0xA8 }); //3Secondary
+            RGH.SetMemory(0x84353AED, new byte[] { 0x00, 0x15 }); //4Primary
+            RGH.SetMemory(0x84353AFB, new byte[] { 0x80, 0x0A }); //4Secondary
+            RGH.SetMemory(0x84353B22, new byte[] { 0x50, 0x01 }); //5Primary
+            RGH.SetMemory(0x84353B30, new byte[] { 0xA8, 0x00 }); //5Secondary
+            RGH.SetMemory(0x84353B56, new byte[] { 0x00, 0x15 }); //6Primary
+            RGH.SetMemory(0x84353B64, new byte[] { 0x80, 0x0A }); //6Secondary
+            RGH.SetMemory(0x84353B8B, new byte[] { 0x50, 0x01 }); //7Primary
+            RGH.SetMemory(0x84353B99, new byte[] { 0x80, 0x0A }); //7Secondary
+            RGH.SetMemory(0x84353BBF, new byte[] { 0x00, 0x15 }); //8Primary
+            RGH.SetMemory(0x84353BCD, new byte[] { 0x80, 0x0A }); //8Secondary
+            RGH.SetMemory(0x84353BF4, new byte[] { 0x50, 0x01 }); //9Primary
+            RGH.SetMemory(0x84353C02, new byte[] { 0xA8, 0x00 }); //9Secondary
+            RGH.SetMemory(0x84353C28, new byte[] { 0x00, 0x15 }); //10Primary
+            RGH.SetMemory(0x84353C36, new byte[] { 0x80, 0x0A }); //10Secondary
+            RGH.XNotify("Ghost Camo Set!");
+            MessageBoxEx.Show("You must have Rogue Camo in order for these to stick!", "Read Meh", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void buttonX4_Click(object sender, EventArgs e)
+        {
+            RGH.SendFile("32F15B3AE2F96063335D6AA36FDC98638258375941", "HDD:\\Content\\0000000000000000\\415608C3\\00000002\\32F15B3AE2F96063335D6AA36FDC98638258375941");
+            MessageBoxEx.Show("Season Pass Installed Successfully!\nPlease Reboot your Bo2 to Finalize.", "Success, Baby.", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void class2_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+    }
+}
